@@ -47,7 +47,12 @@ jobs:
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
 
           df -h
-
+      - name: 涡轮增雕进程,添加Argon最新版主题
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/jerrykuku/luci-theme-argon.git
       - name: 更新源(Update feeds)
         run: |
           ./scripts/feeds update -a
