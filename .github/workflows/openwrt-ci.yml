@@ -169,8 +169,8 @@ jobs:
       - name: Prepare artifact
         run: |
           # find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
-          # rm -rf ./artifact/
-          # mkdir -p ./artifact/
+          rm -rf ./artifact/
+          mkdir -p ./artifact/
           # find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*combined*sysupgrade*img*" | xargs -i mv -f {} ./artifact/
 
