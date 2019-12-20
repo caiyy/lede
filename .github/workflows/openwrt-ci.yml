@@ -171,10 +171,11 @@ jobs:
           # find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
           # rm -rf ./artifact/
           # mkdir -p ./artifact/
-          find ./bin/targets/ -type d -name "*combined*sysupgrade*img*" | xargs rm -rf {}
+          # find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -type d -name "*combined*sysupgrade*img*" | xargs -i mv -f {} ./artifact/
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: X64
-          path: ./bin/targets/
+          path: ./artifact/
